@@ -16,6 +16,5 @@ def missing_request(message):
 def invalid_plate(message):
     return response(422, message)
 
-
 def valid_plate(message):
     return response(200, message)

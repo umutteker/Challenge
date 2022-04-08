@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from models.plate import PlateModel, PlateValidation
 from resources.ServiceResponse import missing_request, invalid_plate, valid_plate
 from flask import request, jsonify
-from datetime import datetime
+
 
 
 class Plate(Resource):
