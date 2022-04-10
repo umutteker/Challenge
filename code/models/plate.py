@@ -8,17 +8,17 @@ class PlateModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     plate = db.Column(db.String(20))
     owner = db.Column(db.String(40), default="")
-    start_date = db.Column(db.DateTime, default=datetime.utcnow)
-    end_date = db.Column(db.DateTime, default=datetime.utcnow)
+    start_date = db.Column(db.DateTime)
+    end_date = db.Column(db.DateTime)
 
-    def __init__(self, plate, owner=None):
+    def __init__(self, plate, owner, start_date, end_date):
         self.plate = plate
         if owner is None:
             self.owner = ""
         else:
             self.owner = owner
-        self.start_date = datetime.now()
-        self.end_date = self.start_date
+        self.start_date = start_date
+        self.end_date = end_date
 
     def json(self):
         return {'plate': self.plate, 'owner': self.owner, 'start_date': self.start_date, 'end_date': self.end_date}
